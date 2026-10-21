@@ -1,0 +1,10 @@
+{
+  "name": "veritaspack-contract",
+  "private": true,
+  "scripts": {
+    "contract:compile": "solcjs --bin --abi -o build contracts/PackageRegistry.sol"
+  },
+  "devDependencies": {
+    "solc": "^0.8.30"
+  }
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#09151c">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>VeritasPack | Smart packaging trust console</title>
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">V<span>●</span></div><div><strong>VERITAS<span>PACK</span></strong><small>Trust in every touch</small></div></div>
+      <div class="side-label">WORKSPACE</div>
+      <a class="nav active" href="#overview"><span>◫</span> Overview</a>
+      <a class="nav" href="#scanner"><span>⌁</span> Scan simulator</a>
+      <a class="nav" href="#ledger"><span>▤</span> Audit ledger</a>
+      <a class="nav" href="#architecture"><span>◇</span> Architecture</a>
+      <div class="sidebar-bottom"><div class="mode-dot"></div><div><strong>LOCAL DEMO MODE</strong><small>Virtual secure-tag reader</small></div></div>
+    </aside>
+
+    <main>
+      <header class="topbar"><div class="crumb">WORKSPACE <span>/</span> TRUST CONSOLE</div><div class="top-right"><span class="network"><i></i> Local ledger</span><span class="avatar">VP</span></div></header>
+      <div class="content" id="overview">
+        <div class="eyebrow">SMART PACKAGING / CONTROL CENTER <span class="eyebrow-line"></span> V1.0 DEMO</div>
+        <div class="hero"><div><h1>Every package has<br><em>a story you can verify.</em></h1><p>Secure-tag authentication, tamper evidence, and an auditable product history in one console.</p><a class="hero-link" href="#scanner">Run a scan scenario <span>↗</span></a></div><div class="hero-orbit"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-core">V</div><div class="orbit-tag top">AUTHENTIC</div><div class="orbit-tag bottom">TRACEABLE</div></div></div>
+
+        <div class="section-head"><div><div class="kicker">01 / SYSTEM PULSE</div><h2>At a glance</h2></div><span class="subtle">Live demo state</span></div>
+        <div class="metrics"><div class="metric"><div class="metric-icon green">◈</div><div class="metric-label">Registered packages</div><div class="metric-value" id="metric-products">—</div><div class="metric-foot">Secure-tag identities</div></div><div class="metric"><div class="metric-icon blue">⌁</div><div class="metric-label">Authenticated scans</div><div class="metric-value" id="metric-scans">—</div><div class="metric-foot">Validated challenge-response</div></div><div class="metric"><div class="metric-icon orange">△</div><div class="metric-label">Tamper alerts</div><div class="metric-value" id="metric-tamper">—</div><div class="metric-foot">Permanent seal state</div></div><div class="metric"><div class="metric-icon purple">▤</div><div class="metric-label">Ledger records</div><div class="metric-value" id="metric-ledger">—</div><div class="metric-foot" id="ledger-integrity">Checking integrity…</div></div></div>
+
+        <div class="section-head product-heading"><div><div class="kicker">02 / PRODUCT REGISTRY</div><h2>Tracked packages</h2></div><span class="subtle">Select a package to inspect its tag</span></div>
+        <div class="product-grid" id="products"></div>
+
+        <div class="work-grid"><section class="panel scanner" id="scanner"><div class="panel-top"><div><div class="kicker">03 / LIVE DEMO</div><h2>Scan simulator</h2></div><div class="live-pill"><i></i> READY</div></div><p class="panel-intro">Choose a package and run a realistic secure-tag scenario. The virtual reader generates a proof; the API verifies it.</p><div class="selected-card"><div class="selected-icon">⌁</div><div><span>SELECTED PACKAGE</span><strong id="selected-name">—</strong><small id="selected-meta">—</small></div><div class="selected-chevron">↗</div></div><div class="scenario-label">CHOOSE A SCENARIO</div><div class="scenario-grid"><button class="scenario" data-scenario="authentic"><span class="scenario-symbol authentic">✓</span><strong>Authentic scan</strong><small>Valid proof + fresh counter</small></button><button class="scenario" data-scenario="clone"><span class="scenario-symbol clone">⧉</span><strong>Copied UID</strong><small>Same ID, wrong secret key</small></button><button class="scenario" data-scenario="replay"><span class="scenario-symbol replay">↶</span><strong>Replay old scan</strong><small>Previously seen counter</small></button><button class="scenario" data-scenario="tamper"><span class="scenario-symbol tamper">△</span><strong>Trip tamper seal</strong><small>Authenticated breach signal</small></button></div><div class="result" id="result" aria-live="polite"><div class="result-placeholder">Select a scenario to see the verification result.</div></div></section>
+
+        <section class="panel activity" id="ledger"><div class="panel-top"><div><div class="kicker">04 / AUDIT TRAIL</div><h2>Ledger activity</h2></div><span class="ledger-pill" id="ledger-pill">VERIFYING</span></div><p class="panel-intro">Each accepted event links to the previous record. Select a package to filter its history.</p><div class="hash-box"><span>LATEST BLOCK HASH</span><code id="latest-hash">—</code></div><div class="timeline" id="events"></div></section></div>
+
+        <section class="architecture" id="architecture"><div class="section-head"><div><div class="kicker">05 / UNDER THE HOOD</div><h2>How trust is established</h2></div></div><div class="flow"><div class="flow-step"><div class="flow-number">01</div><div class="flow-icon">⌁</div><strong>Secure tag</strong><p>Tag proves knowledge of a secret through a fresh challenge and counter.</p></div><div class="flow-arrow">→</div><div class="flow-step"><div class="flow-number">02</div><div class="flow-icon">◇</div><strong>Verification API</strong><p>Checks the MAC, nonce expiry, replay counter, and tamper signal.</p></div><div class="flow-arrow">→</div><div class="flow-step"><div class="flow-number">03</div><div class="flow-icon">▤</div><strong>Audit ledger</strong><p>Links accepted events by hash; optional EVM contract anchors commitments.</p></div></div><div class="truth-note"><span>ⓘ</span><p><strong>Demo trust boundary.</strong> This local ledger is single-node, and the reader is simulated. A production rollout needs physical cryptographic tags, protected keys, an authorized scanner, and deployed chain anchoring.</p></div></section>
+        <footer><span>VERITASPACK / INTERVIEW PROTOTYPE</span><button id="reset">Reset demo data ↺</button></footer>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
