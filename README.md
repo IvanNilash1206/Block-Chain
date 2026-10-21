@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # VeritasPack
 
 An interview-ready smart packaging prototype: authenticated RFID scans, persistent tamper state, a verifiable local audit ledger, and a Solidity registry for deployment on an EVM chain.
@@ -48,3 +49,6 @@ The runnable demo uses a **virtual trusted reader** and a **single-node, hash-li
 ## Resume language
 
 “Built a smart packaging prototype with cryptographic RFID challenge-response, replay-resistant scan verification, irreversible tamper state, a hash-linked audit trail, and a Solidity registry for on-chain anchoring. Demonstrated authentic scans, cloned UID rejection, and replay detection through an interactive dashboard.”
+=======
+# Block-Chain
+>>>>>>> d95adf37a0fdc0a0a73008b2f13fd99d1500fe6e
